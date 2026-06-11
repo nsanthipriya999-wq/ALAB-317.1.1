@@ -149,7 +149,7 @@ const makes4 = ["Volkswagon", "Tesla", "Audi"];
 
 const models4 = ["Passat", "Model X", "A4"];
 
-const testCycle4 = new NCycle<string[]>(makes4, models4, 4);
+const testCycle4 = new NCycle<string>(makes4, models4, 4);  //removed []
 
 testCycle4.print(2);
 
@@ -161,7 +161,7 @@ const makes5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const models5 = [1, 1, 2, 3, 5];
 
-const testCycle5 = new NCycle<number[]>(makes5, models5, 0);
+const testCycle5 = new NCycle<number>(makes5, models5, 0); //changed number[] to number
 
 testCycle5.print(7);
 
@@ -178,10 +178,36 @@ function add(x: number, y: number): number {
 
 
 if(!Array.isArray(testCycle1.make)&& Array.isArray(testCycle5.model))
-// Error expected here
+
 {
   add(testCycle1.make, testCycle5.model[1]);
  
 }
 
-add(testCycle2.make, testCycle4.model[1]);
+//Error Expected here
+add(testCycle2.make, testCycle4.model[1]); //string|string[] is not assignable to number
+
+/*----------------------------------------------/output/-----------------------------------------------------
+The vehicle is running.
+HARLEY-DAVIDSON
+3
+Regal
+This is a 1 2 NCycle.
+This is a 1 2 NCycle
+This is a This That NCycle.
+This is a This That NCycle
+This is a Make Model NCycle.
+This is a Make Model NCycle
+This NCycle has a Audi A4 at 2.
+This NCycle has a Volkswagon Passat at 0.
+This NCycle has a Tesla Model X at 1.
+This NCycle has a Audi A4 at 2.
+This NCycle was not created properly.
+This NCycle has a 1 1 at 0.
+This NCycle has a 2 1 at 1.
+This NCycle has a 3 2 at 2.
+This NCycle has a 4 3 at 3.
+This NCycle has a 5 5 at 4.
+*/
+
+
