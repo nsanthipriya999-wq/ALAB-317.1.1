@@ -60,11 +60,13 @@ console.log(myBuick.model);
 class NCycle<T> {
   make: T | T[];
   model: T | T[];
+  wheels:T
 
 
-  constructor(make: T | T[], model: T | T[],wheels?:number) {
+  constructor(make: T | T[], model: T | T[],wheels:T) {
     this.make = make;
     this.model = model;
+    this.wheels=wheels;
     
   }
   /*start(): void {
@@ -182,11 +184,10 @@ function add(x: number, y: number): number {
 
 
 if(!Array.isArray(testCycle1.make)&& Array.isArray(testCycle5.model))
-
 {
   add(testCycle1.make, testCycle5.model[1]);
- 
 }
+
 
 //Error Expected here
 add(testCycle2.make, testCycle4.model[1]); //string|string[] is not assignable to number
