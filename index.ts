@@ -62,7 +62,7 @@ class NCycle<T> {
   model: T | T[];
 
 
-  constructor(make: T | T[], model: T | T[]) {
+  constructor(make: T | T[], model: T | T[],wheels?:number) {
     this.make = make;
     this.model = model;
     
@@ -119,6 +119,10 @@ class NCycle<T> {
 
 
 //---------------------------------Test Cases----------------------------------------
+// Rudimentary testing Code, not part of the assignment
+
+
+
 
 const testCycle1 = new NCycle <number>(1, 2, 3);
 
@@ -149,7 +153,7 @@ const makes4 = ["Volkswagon", "Tesla", "Audi"];
 
 const models4 = ["Passat", "Model X", "A4"];
 
-const testCycle4 = new NCycle<string[]>(makes4, models4,);  //removed []
+const testCycle4 = new NCycle<string[]>(makes4, models4,);  
 
 testCycle4.print(2);
 
@@ -161,7 +165,7 @@ const makes5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const models5 = [1, 1, 2, 3, 5];
 
-const testCycle5 = new NCycle<number[]>(makes5, models5); //changed number[] to number
+const testCycle5 = new NCycle<number>(makes5, models5); 
 
 testCycle5.print(7);
 
