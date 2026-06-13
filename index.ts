@@ -60,29 +60,29 @@ console.log(myBuick.model);
 class NCycle<T> {
   make: T | T[];
   model: T | T[];
-  wheels: number;
-  status: "started" | "stopped";
 
-  constructor(make: T | T[], model: T | T[], wheels: number) {
+
+  constructor(make: T | T[], model: T | T[]) {
     this.make = make;
     this.model = model;
-    this.wheels = wheels;
-    this.status = "stopped";
+    
   }
-  start(): void {
+  /*start(): void {
     this.status = "started";
 
   }
   stop(): void {
     this.status = "stopped";
-  }
+  }*/
   //-------------------------------function print--------------------------------------------------------------
   print(pos: number = 0): void {
     if (!Array.isArray(this.model) && !Array.isArray(this.make)) {
       console.log(`This is a ${this.make} ${this.model} NCycle.`);
+    
     }
     else if (Array.isArray(this.make) && (Array.isArray(this.model)) && pos >= 0 && pos < this.make.length && pos < this.model.length) {
       console.log(`This NCycle has a ${this.make[pos]} ${this.model[pos]} at ${pos}.`);
+      
 
     }
     else {
@@ -95,7 +95,7 @@ class NCycle<T> {
 
   printAll(): void {
     if (!Array.isArray(this.model) && !Array.isArray(this.make)) {
-      console.log(`This is a ${this.make} ${this.model} NCycle`);
+      console.log(`This is a ${this.make} ${this.model} NCycle.`);
     }
     else if (Array.isArray(this.make) && Array.isArray(this.model))
       {
@@ -149,7 +149,7 @@ const makes4 = ["Volkswagon", "Tesla", "Audi"];
 
 const models4 = ["Passat", "Model X", "A4"];
 
-const testCycle4 = new NCycle<string>(makes4, models4, 4);  //removed []
+const testCycle4 = new NCycle<string[]>(makes4, models4,);  //removed []
 
 testCycle4.print(2);
 
@@ -161,7 +161,7 @@ const makes5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const models5 = [1, 1, 2, 3, 5];
 
-const testCycle5 = new NCycle<number>(makes5, models5, 0); //changed number[] to number
+const testCycle5 = new NCycle<number[]>(makes5, models5); //changed number[] to number
 
 testCycle5.print(7);
 
@@ -187,6 +187,7 @@ if(!Array.isArray(testCycle1.make)&& Array.isArray(testCycle5.model))
 //Error Expected here
 add(testCycle2.make, testCycle4.model[1]); //string|string[] is not assignable to number
 
+
 /*----------------------------------------------/output/-----------------------------------------------------
 The vehicle is running.
 HARLEY-DAVIDSON
@@ -207,7 +208,5 @@ This NCycle has a 1 1 at 0.
 This NCycle has a 2 1 at 1.
 This NCycle has a 3 2 at 2.
 This NCycle has a 4 3 at 3.
-This NCycle has a 5 5 at 4.
+This NCycle has a 5 5 at 4
 */
-
-
