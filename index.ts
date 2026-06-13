@@ -60,10 +60,10 @@ console.log(myBuick.model);
 class NCycle<T> {
   make: T | T[];
   model: T | T[];
-  wheels:T
+  wheels:number;
 
 
-  constructor(make: T | T[], model: T | T[],wheels:T) {
+  constructor(make: T | T[], model: T | T[],wheels:number) {
     this.make = make;
     this.model = model;
     this.wheels=wheels;
@@ -155,7 +155,7 @@ const makes4 = ["Volkswagon", "Tesla", "Audi"];
 
 const models4 = ["Passat", "Model X", "A4"];
 
-const testCycle4 = new NCycle<string[]>(makes4, models4,);  
+const testCycle4 = new NCycle<string[]>(makes4, models4,4);  
 
 testCycle4.print(2);
 
@@ -167,7 +167,7 @@ const makes5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const models5 = [1, 1, 2, 3, 5];
 
-const testCycle5 = new NCycle<number>(makes5, models5); 
+const testCycle5 = new NCycle<number>(makes5, models5,0); 
 
 testCycle5.print(7);
 
